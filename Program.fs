@@ -18,7 +18,7 @@ let sendMailMessage sender email subject body template =
 
     let msg = new MailMessage( sender, email, subject, body )
     let format = SmtpDeliveryFormat()
-    // msg.IsBodyHtml <- true
+    msg.IsBodyHtml <- true
     // printfn "Body is HTML: %b" (msg.IsBodyHtml) 
     let client = new SmtpClient(server, port)
     client.EnableSsl <- true
