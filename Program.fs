@@ -42,12 +42,12 @@ let sendMailMessage sender email subject body template =
 let main argv =
     let sender = "wade@monsterreviews.io"
     match argv with
-    | [|a;b;c|] ->
+    | [|subject|] ->
 
-        let subject = c
+        let subject = subject
         let fullPath = System.IO.Directory.GetCurrentDirectory() + "/" + "monsterText.csv"
-        let templatePath = System.IO.Directory.GetCurrentDirectory() + "/" + b
-        // let template = System.IO.File.ReadAllText(templatePath)
+        let templatePath = System.IO.Directory.GetCurrentDirectory() + "/" + "template.html"
+        let template = System.IO.File.ReadAllText(templatePath)
         printfn "File to email: %s" (fullPath)
         printfn "With template: %s" (templatePath)
         printfn "Email subject: %s" (subject)
@@ -55,14 +55,11 @@ let main argv =
         let headerRow = data.Rows |> Seq.head
 
         for row in data.Rows do
-            // let emailBody = 
-            //     template
-            //         .Replace("{{name}}", row.Name)
-            //         .Replace("{{job_title}}", row.Title)        
             printfn "Sending email to: %s" row.Email
-            sendMailMessage sender row.Email subject "Test Email" "template"
+            let emailBody = template.Replace("{{name}}", row.Name)
+            sendMailMessage sender row.Email subject emailBody template
         // sendMailMessage sender "luisfxx@hotmail.com" "test" "test body" "template"
         printfn "Done sending emails!!"
-    | _ -> failwith "Three arguments required!" 
+    | _ -> failwith "1 argument required!" 
 
     0
