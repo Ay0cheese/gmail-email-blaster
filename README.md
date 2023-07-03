@@ -1,7 +1,13 @@
-# gmail-email-blaster
+ # gmail-email-blaster
 
 1: download visual studio code
 2: download/install .net
+'https://dotnet.microsoft.com/en-us/download'
+
+Use gitclone to get the code. see instructions below:
+https://www.educative.io/answers/how-to-clone-a-git-repository-using-the-command-line
+
+
 
 
 - to send emails -
