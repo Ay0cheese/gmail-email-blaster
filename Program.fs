@@ -12,8 +12,8 @@ let sendMailMessage sender email subject body template =
 // let sender = "wade@monsterreviews.io" // ConfigurationManager.AppSettings.["mailsender"]
 // let sender = "wgoodman@medivisionusa.com" // ConfigurationManager.AppSettings.["mailsender"]
     let port = 587
-    let password = "K7@x7yd3"
-// let password = "******" // ConfigurationManager.AppSettings.["mailpassword"] |> my-decrypt
+    let password = "Goodman@2023"
+    // let password = "******" // ConfigurationManager.AppSettings.["mailpassword"] |> my-decrypt
     let server = "smtp.gmail.com" // ConfigurationManager.AppSettings.["mailserver"]
 
     let msg = new MailMessage( sender, email, subject, body )
@@ -45,7 +45,7 @@ type LeadDetails = {
 
 [<EntryPoint>]
 let main argv =
-    let sender = "wade@monsterreviews.io"
+    let sender = "office@monsterreviews.io"
     match argv with
     | [|subject|] ->
 
